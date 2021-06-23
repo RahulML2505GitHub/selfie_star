@@ -1,14 +1,13 @@
 import cv2
-import time
+import time, os
 import numpy as np
 from PIL import ImageGrab
 
-width = 1920
-height = 1080
+if not os.path.exists('screen_recodes/'): os.mkdir("screen_recodes")
 time_stamp = time.strftime('%Y-%m-%d %H-%M-%S')
 file_name = f"screen_recodes/record {time_stamp}.mp4"
 fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
-captured_video = cv2.VideoWriter(file_name, fourcc, 60.0, (width, height))
+captured_video = cv2.VideoWriter(file_name, fourcc, 60.0, (1920, 1080))
 
 while True:
     img = ImageGrab.grab((0, 0, 1920, 1080))

@@ -1,7 +1,8 @@
 import cv2
-import time
+import time, os
 webcam, laptop_cam = 1, 0
 cap = cv2.VideoCapture(webcam)
+if not os.path.exists('images/'): os.mkdir("images")
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 smile_cascade = cv2.CascadeClassifier('haarcascade_smile.xml')
 while True:
